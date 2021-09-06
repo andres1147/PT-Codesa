@@ -1,0 +1,62 @@
+<section class="py-4 mb-4 bg-light">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4>Informacion de Usuario</h4>
+                    </div>
+
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="mx-2 py-2 mb-2">
+                            <button class="btn btn-primary" type="submit" [disabled]='editar'>Guardar</button>
+                            <button (click)='editarUsuario()' class="btn btn-primary"
+                                [disabled]='visualizar'>Editar</button>
+                            <button (click)="eliminarUsuario(usuario.idUsuario)" class="btn btn-primary"
+                                [disabled]='visualizar'>Eliminar</button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="id">Id</label>
+                                <input type="number" class="form-control" id="idUsuario" [(ngModel)]="usuario.idUsuario"
+                                    name="idUsuario" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" [(ngModel)]="usuario.nombre"
+                                    name="nombre" [disabled]='formulario'>
+                            </div>
+                            <div class="form-group">
+                                <label for="rol">Rol</label>
+                                <select class="form-select" name="rol" aria-label="Default select example" required
+                                    [(ngModel)]="usuario.idRol" [disabled]='formulario'>
+                                    <option>Open this select menu</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Auditor</option>
+                                    <option value="3">Auxiliar</option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="activo">Activo</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="activo" id="inlineRadio1"
+                                        value="S" [(ngModel)]="usuario.activo">
+                                    <label class="form-check-label" for="activo">S</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="activo" id="inlineRadio2"
+                                        value="N" [disabled]='formulario' [(ngModel)]="usuario.activo">
+                                    <label class="form-check-label" for="activo">N</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+<div class="card mb-6">
+    <div class="card-header bg-primary text-white">
+        <h4>Listado de Usuarios</h4>
+    </div>
+    <div class="mx-2 py-2 mb-2">
+        <button (click) = 'crearUsuario()' class="btn btn-primary">Crear</button>
+    </div>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>ID Rol</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{usuario.idUsuario}}</td>
+                <td>{{usuario.idRol}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.activo}}</td>
+                <td>
+                    <button (click) = "visualizarUsuario(usuario.idUsuario)" class="btn btn-primary" type="submit">Ver</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-ver-usuario [usuario] = "usuario"
+                 [visualizar] = "visualizar"
+                 [editar] = "editar"
+                 [formulario] = "formulario"
+></app-ver-usuario>
